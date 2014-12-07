@@ -98,7 +98,13 @@ ul.rig li img {
 ul.rig li h3 {
   margin: 0 0 5px;
 }
-ul.rig li p {
+ul.rig li p{
+  font-size: 14px;
+  line-height: 1.5em;
+  color: #999;
+  text-align: center;
+}
+ul.rig li p.title {
   display: block;
   display: -webkit-box;
   max-width: 100%;
