@@ -119,9 +119,10 @@ ul.rig li p {
 ul.rig.columns-4 li {
   width: 22.5%; /* this value + 2.5 should = 25% */
 }
-audio.cont-4{
+audio.audio-label{
   width: 100%;
   position: relative;
+  background: #cbc385;
 }
 @media (max-width: 1199px) {
   .container {

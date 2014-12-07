@@ -49,7 +49,7 @@ var sounds = {
       soundLists += "<li>" +
            validateartwork() +
            "<h3>" + tracks.title + "</h3>" +
-           "<audio class='cont-4' src='"+tracks.stream_url+"?client_id=f5f1c67193dfe560ce6db6390276ba45' type='audio/mpeg' controls='controls'></audio>" + 
+           "<audio class='audio-label' src='"+tracks.stream_url+"?client_id=f5f1c67193dfe560ce6db6390276ba45' type='audio/mpeg' controls='controls'></audio>" + 
            "<p>" + validateUrl() + "</p>" +
            "</li>";
     });//END EACH
