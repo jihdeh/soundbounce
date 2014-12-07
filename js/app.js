@@ -1,47 +1,82 @@
-
 var sounds = {
-  clientId: 'client_id=f5f1c67193dfe560ce6db6390276ba45',
+  soundCloudClientId: 'client_id=f5f1c67193dfe560ce6db6390276ba45',
+  webhoseToken: 'fbe108d4-e3de-4323-8150-697f0a2f03cd',
+
+  getResourceWebhose: function(enteredSearchTerm){
+    var url = 'https://webhose.io/search?token='+this.webhoseToken+'&format=json&q='+enteredSearchTerm;
+    $.getJSON(url, sounds.webhoseCallback);
+  },
+  getResourceSoundcloud: function(enteredSearchTerm){
+    var url = 'https://api.soundcloud.com/tracks.json?q=' + enteredSearchTerm + '?&amp;'+ this.soundCloudClientId;
+    $.getJSON(url, sounds.soundCallback);
+  },
+  submitForm: function(){
+    $('form').submit(function (evt){
+      evt.preventDefault();
+      var $search = $('#search');
+      var $submit = $('#submit');
+      var enteredSearchTerm = $('#search').val();
+      sounds.getResourceWebhose(enteredSearchTerm);
+      sounds.getResourceSoundcloud(enteredSearchTerm);
+    });//End Submit
+  },
+  //Callback for SoundCloud
   soundCallback: function(tracks){
-    var soundLists = "<ul class='rig columns-4'>";
+    var soundLists = "<ul class='rig columns-4 grid-nav'>";
     $.each(tracks, function(index, tracks){
-      var downloadUrl = tracks.download_url+ '?' +sounds.clientId;
-      if(index === 6){ //return only 6 search results
+      var downloadUrl = tracks.download_url+ '?' +sounds.soundCloudClientId; //Download Url for song
+      if(index === 8){ //return only 6 search results
         return false;
       }
-      //FUNCTION TO SOLVE FOR URLS WITH FILE NOT FOUND
+      //Function to solve un-downloadble songs
       function validateUrl(){
         if(tracks.downloadable === false){
-          return "This Item Can't Be Downloaded But can be Played";
+          return "This Item can only be played";
         }
         else{
           return "<a href="+downloadUrl+" title=" + tracks.title + ">Download Song</a>";
         }
       }
+      //Function to solve for unavailable arworks
+      function validateartwork(){
+         if(tracks.artwork_url == null){
+          return "<img src='images/avatar.jpg' alt='avatar' />";
+        }
+        else{
+          return "<img class='artwork_cover' src='"+tracks.artwork_url+"'/>";
+        }
+      }//End validation
       soundLists += "<li>" +
-           "<img class='cover' src='" + tracks.user.avatar_url + "'/>" +
+           validateartwork() +
            "<h3>" + tracks.title + "</h3>" +
            "<audio class='cont-4' src='"+tracks.stream_url+"?client_id=f5f1c67193dfe560ce6db6390276ba45' type='audio/mpeg' controls='controls'></audio>" + 
            "<p>" + validateUrl() + "</p>" +
            "</li>";
-    })//END EACH
+    });//END EACH
     soundLists += '</ul>';
-     $('#four-columns').html(soundLists);
+    // sounds.newItem += sounds.closeNewItem;
+    $('#soundcloud-columns').fadeIn(500).html(soundLists);
   },
-  getResource: function(songs){
-    var url = 'https://api.soundcloud.com/tracks.json?q=' + songs + '?&amp;client_id=f5f1c67193dfe560ce6db6390276ba45';
-    $.getJSON(url, sounds.soundCallback)
-  },
-  forms: function(){
-    $('form').submit(function (evt){
-      evt.preventDefault();
-      var $search = $('#search');
-      var $submit = $('#submit');
-      var songs = $('#search').val();
-      sounds.getResource(songs);
-    });//End Submit
+  //Callback for Webhose
+  webhoseCallback: function(tracks){
+    var newsLists = "<ul class='rig columns-4 grid-nav'>";
+    $.each(tracks.posts, function(index, tracks){
+      if(index === 8){ //return only 6 search results
+        return false;
+      }
+      newsLists += "<li>" +
+           "<h2>" +tracks.title+ "</h2>"+
+           "<p class='title'>"+tracks.text+"</p>"+
+           "<a class='url' href="+tracks.url+" target='_blank'>Read More</a>"+
+           "</li>";
+           console.log(tracks.thread);
+    });//END EACH
+    newsLists += '</ul>';
+    $('#webhose-columns').fadeIn(500).html(newsLists);
   }
-  }
-$(document).ready(sounds.forms);
+  };
+$(document).ready(sounds.submitForm);
+
 $(document).ready(function() {
   $('.grid-nav li a').on('click', function(event){
     event.preventDefault();
