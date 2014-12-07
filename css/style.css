@@ -37,6 +37,8 @@ ul.grid-nav {
   list-style: none;
   font-size: .85em;
   font-weight: 200;
+}
+ul.grid-nav-tab{
   text-align: center;
 }
 ul.grid-nav li {
@@ -80,27 +82,32 @@ ul.rig li {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  text-align:center;
 }
 ul.rig li img {
   max-width: 100%;
-  height: auto;
-  margin: 0 0 10px;
+  height: 150px;
+  margin: 0 auto 10px;
 }
 ul.rig li h3 {
   margin: 0 0 5px;
 }
 ul.rig li p {
-  font-size: .9em;
+  display: block;
+  display: -webkit-box;
+  max-width: 100%;
+  padding-top: 10px;
+  height: 63px;
+  margin: 0 auto;
+  color: #999;
+  font-size: 14px;
   line-height: 1.5em;
   color: #999;
-}
-/* class for 2 columns */
-ul.rig.columns-2 li {
-  width: 47.5%; /* this value + 2.5 should = 50% */
-}
-/* class for 3 columns */
-ul.rig.columns-3 li {
-  width: 30.83%; /* this value + 2.5 should = 33% */
+  text-align: center;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 /* class for 4 columns */
 ul.rig.columns-4 li {
@@ -121,7 +128,7 @@ audio.cont-4{
   width: 30.83%; /* this value + 2.5 should = 55% */
 }
 }
-@media screen and (max-width: 700px){
+@media screen and (max-width: 830px){
   ul.rig.columns-4 li {
   width: 47.5%; /* this value + 2.5 should = 55% */
 }
