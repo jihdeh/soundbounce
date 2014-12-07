@@ -29,7 +29,7 @@ var sounds = {
         return false;
       }
       //Function to solve un-downloadble songs
-      function validateUrl(){
+      function validateDownload(){
         if(tracks.downloadable === false){
           return "This Item can only be played";
         }
@@ -43,14 +43,16 @@ var sounds = {
           return "<img src='images/avatar.jpg' alt='avatar' />";
         }
         else{
-          return "<img class='artwork_cover' src='"+tracks.artwork_url+"'/>";
+          return "<img class='artwork_cover' src='"+tracks.artwork_url+"' alt='artwork'/>";
         }
       }//End validation
       soundLists += "<li>" +
            validateartwork() +
            "<h3>" + tracks.title + "</h3>" +
            "<audio class='audio-label' src='"+tracks.stream_url+"?client_id=f5f1c67193dfe560ce6db6390276ba45' type='audio/mpeg' controls='controls'></audio>" + 
-           "<p>" + validateUrl() + "</p>" +
+           "<p class='url'>" + validateDownload() + "</p>" +
+           "<p>Uploaded By: " + tracks.user.username + "</p>" +
+           "<p>Played: " + tracks.playback_count + " times</p>" +
            "</li>";
     });//END EACH
     soundLists += '</ul>';
