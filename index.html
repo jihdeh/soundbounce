@@ -1,39 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>SoundBounce By Babajide</title>
+<title>Responsive Image Grids Using CSS</title>
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
-  <div class="wrapper">
-    <div class="container">
-      <h1>Sound-Bounce</h1>
-      <ul class="grid-nav grid-nav-tab">
-        <li><a href="#" data-id="four-columns" class="active">VIBZING</a></li>
-      </ul>
-      <hr />
-      <form>
-        <input type="text" id="search">
-        <input type="submit" id="submit">
-      </form>
-      <hr>
-      <div id="soundcloud-columns" class="grid-container">
-      </div>
-      <hr>
-      <h3 id="news">Related News</h3>
-      <br>
-      <div id="webhose-columns" class="grid-container">
-      </div>
-      <hr>
-      <p class="centered">&copy;<a href="https://twitter.com/jihdehS">Babajide Fowotade</a></p>
+<div class="wrapper">
+  <div class="container">
+    <h1>Sound-Bounce</h1>
+    <ul class="grid-nav grid-nav-tab">
+      <li><a href="#" data-id="four-columns" class="active" target="_blank"><h3>Bernard Ojengwa</h3><br><p>Instructor</p></a></li>
+      <li><a href="http://twitter.com/jihdehS" data-id="four-columns" target="_blank"><h3>Babajide Fowotade</h3><br><p>Developer</p></a></li>
+      <li><a href="#news" data-id="four-columns"><h3>Babajide Fowotade</h3><br><p>Developer</p></a></li>
+    </ul>
+    <section>
+    <hr>
+    <form>
+      <input type="text" id="search">
+      <input type="submit" id="submit">
+    </form>
+    <hr>
+    <div id="soundcloud-columns" class="grid-container">
     </div>
-    <!--/.container-->
+    <!--/#four-columns-->
+    
+    <hr />
+    <h3 id="news">Related News</h3>
+    <br>
+    <div id="webhose-columns" class="grid-container">
+    </div>
+    <hr>
+    </section>
+    <footer>
+      <p class="centered">&copy;<a href="https://twitter.com/jihdehS">Babajide Fowotade</a></p>
+    </footer>
   </div>
-  <!--/.wrapper-->
-  <script src="js/jquery.js" type="text/javascript"></script>
-  <script src="js/app.js"></script>
+  <!--/.container-->
+</div>
+<!--/.wrapper-->
+
+<script src="js/jquery.js" type="text/javascript"></script>
+ <script src="js/app.js"></script>
 
 </body>
 </html>

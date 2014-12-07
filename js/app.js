@@ -55,7 +55,7 @@ var sounds = {
     });//END EACH
     soundLists += '</ul>';
     // sounds.newItem += sounds.closeNewItem;
-    $('#soundcloud-columns').fadeIn(500).html(soundLists);
+    $('#soundcloud-columns').html(soundLists).fadeIn(500);
   },
   //Callback for Webhose
   webhoseCallback: function(tracks){
@@ -72,20 +72,7 @@ var sounds = {
            console.log(tracks.thread);
     });//END EACH
     newsLists += '</ul>';
-    $('#webhose-columns').fadeIn(500).html(newsLists);
+    $('#webhose-columns').html(newsLists).fadeIn(500);
   }
   };
 $(document).ready(sounds.submitForm);
-
-$(document).ready(function() {
-  $('.grid-nav li a').on('click', function(event){
-    event.preventDefault();
-    $('.grid-container').fadeOut(500, function(){
-      $('#' + gridID).fadeIn(500);
-    });
-    var gridID = $(this).attr("data-id");
-    
-    $('.grid-nav li a').removeClass("active");
-    $(this).addClass("active");
-  });
-});
