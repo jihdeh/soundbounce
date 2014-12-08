@@ -1,0 +1,41 @@
+
+@media (max-width: 1199px) {
+  .container {
+    width: auto;
+    padding: 0 10px;
+  }
+}
+@media screen and (max-width: 1043px){
+  ul.rig.columns-4 li {
+  width: 30.83%; /* this value + 2.5 should = 55% */
+}
+}
+@media screen and (max-width: 830px){
+  ul.rig.columns-4 li {
+  width: 47.5%; /* this value + 2.5 should = 55% */
+}
+}
+@media (max-width: 480px) {
+  h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3em;
+  font-weight: 400;
+  margin: 0 0 20px;
+  text-align: center;
+  text-shadow: 1px 1px 0 #fff, 2px 2px 0 #bbb;
+}
+  ul.grid-nav li {
+    display: block;
+    margin: 0 0 5px;
+  }
+  ul.grid-nav li a {
+    display: block;
+  }
+  ul.rig {
+    margin-left: 0;
+  }
+  ul.rig li {
+    width: 100% !important; /* over-ride all li styles */
+    margin: 0 0 20px;
+  }
+}
