@@ -3,7 +3,7 @@ var sounds = {
   webhoseToken: 'fbe108d4-e3de-4323-8150-697f0a2f03cd',
 
   getResourceWebhose: function(enteredSearchTerm){
-    var url = 'https://webhose.io/search?token='+this.webhoseToken+'&format=json&q='+enteredSearchTerm;
+    var url = 'https://webhose.io/search?token='+this.webhoseToken+'&language=english&site_type=blogs&format=json&q='+enteredSearchTerm;
     $.getJSON(url, sounds.webhoseCallback);
   },
   getResourceSoundcloud: function(enteredSearchTerm){
