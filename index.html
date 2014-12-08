@@ -1,73 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
 <title>SoundBounce</title>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif|Merriweather:400,400italic' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/responsive.css">
 </head>
 <body>
-  <div class="wrapper">
-    <div class="container">
-      <h1>Sound-Bounce</h1>
-      <ul class="grid-nav grid-nav-tab">
-        <li><a href="#" data-id="four-columns" target="_blank"><h3>Bernard Ojengwa</h3><br><p>Instructor</p></a></li>
-        <li><a href="http://twitter.com/jihdehS" data-id="four-columns" class="active" target="_blank"><h3>Babajide Fowotade</h3><br><p>Developer</p></a></li>
-        <li><a href="http://andela-bfowotade.github.io/instaMe/" data-id="four-columns"><h3>Instagram Images</h3><br><p>Click Me</p></a></li>
-      </ul>
-      <section>
-      <hr>
-      <form>
-        <input type="text" id="search">
-        <input type="submit" id="submit">
-        <br>
-        <a href="http://soundcloud.com"><img src="https://developers.soundcloud.com/assets/powered_by_black-ee7e351d64511ecea75c6c17ca30064f.png" alt="powered by soundcloud"/></a>
-      </form>
-      <!--/#soundcloud-columns-->
-      <hr>
-      <div id="soundcloud-columns" class="grid-container">
-        <ul class='rig columns-4 grid-nav'>
-          <li>
-            <img class='artwork_cover' src='https://i1.sndcdn.com/artworks-000074568792-yan80b-large.jpg'/>
-            <h3>Rae Sremmurd - "No Type" FRESH</h3>
-            <audio class='audio-label' src='https://api.soundcloud.com/tracks/141359811/stream?client_id=f5f1c67193dfe560ce6db6390276ba45' type='audio/mpeg' controls='controls'></audio>
-           <p>This Item can only be played</p>
-           <p>Uploaded By: Jihdeh</p>
-          </li> 
-          <li>
-            <img class='artwork_cover' src='https://i1.sndcdn.com/artworks-000017199529-o55kom-t120x120.jpg'/>
-            <h3>Jessie J - Do It Like a Dude (Explicit)</h3>
-            <audio class='audio-label' src='https://api.soundcloud.com/tracks/34260146/stream?client_id=f5f1c67193dfe560ce6db6390276ba45' type='audio/mpeg' controls='controls'></audio>
-           <p>This Item can only be played</p>
-          </li> 
-          <li>
-            <img class='artwork_cover' src='https://i1.sndcdn.com/artworks-000087762348-dcv3b8-large.jpg'/>
-            <h3>DJ KHALED - HOLD YOU DOWN</h3>
-            <audio class='audio-label' src='https://api.soundcloud.com/tracks/162746414/stream?client_id=f5f1c67193dfe560ce6db6390276ba45' type='audio/mpeg' controls='controls'></audio>
-           <p>This Item can only be played</p>
-          </li> 
-          <li>
-            <img class='artwork_cover' src='https://i1.sndcdn.com/artworks-000058691607-gwv9fp-t120x120.jpg'/>
-            <h3>Katy Perry - Roar (Brillz Remix) OFFICIAL</h3>
-            <audio class='audio-label' src='https://api.soundcloud.com/tracks/112591184/stream?client_id=f5f1c67193dfe560ce6db6390276ba45' type='audio/mpeg' controls='controls'></audio>
-           <p>This Item can only be played</p>
-          </li>
-         </ul>
+  <div class="bg-wrap">
+    <div class="wrapper">
+      <div class="container">
+        <h1>Sound-Bounce</h1>
+        <ul class="grid-nav grid-nav-tab">
+          <li><a href="http://twitter.com/jihdehS" data-id="four-columns" class="active" target="_blank">Babajide Fowotade - Developer</a></li>
+          <li><a href="http://andela-bfowotade.github.io/instaMe/" data-id="four-columns" target="_blank">Instagram Images - Click Me</a></li>
+        </ul>
+        <section>
+        <hr>
+        <form>
+          <input type="text" id="search">
+          <button type="submit" id="submit">Submit</button>
+            <img id="ajax-loader" src="images/ajax-loader.gif" alt="ajax-loader">
+          <br>
+          <a href='http://soundcloud.com'><img src='https://developers.soundcloud.com/assets/powered_by_black-ee7e351d64511ecea75c6c17ca30064f.png' alt='powered by soundcloud' title='powered by soundcloud'/></a>
+          <p class="no-results"></p>
+        </form>
+        <!--/#soundcloud-columns-->
+        <hr>
+        <div id="soundcloud-columns" class="grid-container">
+          <ul class='rig columns-4 grid-nav'>
+            <li>
+              <img class='artwork_cover' src='https://i1.sndcdn.com/artworks-000074568792-yan80b-large.jpg' alt='raesremmurd no type'/>
+              <h3>Rae Sremmurd - "No Type" FRESH</h3>
+              <audio class='audio-label' controls>
+                <source src='https://api.soundcloud.com/tracks/141359811/stream?client_id=f5f1c67193dfe560ce6db6390276ba45' type='audio/mpeg'></audio>
+             <p>This Item can only be played</p>
+             <p>Uploaded By: Jihdeh</p>
+            </li> 
+            <li>
+              <img class='artwork_cover' src='https://i1.sndcdn.com/artworks-000017199529-o55kom-t120x120.jpg' alt='jessie j - do it like a dude'/>
+              <h3>Jessie J - Do It Like a Dude (Explicit)</h3>
+              <audio class='audio-label' controls>
+                <source src='https://api.soundcloud.com/tracks/34260146/stream?client_id=f5f1c67193dfe560ce6db6390276ba45' type='audio/mpeg'>
+              </audio>
+             <p>This Item can only be played</p>
+             <p>Uploaded By: Jihdeh</p>
+            </li> 
+            <li>
+              <img class='artwork_cover' src='https://i1.sndcdn.com/artworks-000087762348-dcv3b8-large.jpg' alt='Dj-Khaled, Hold You down'/>
+              <h3>DJ KHALED - HOLD YOU DOWN</h3>
+              <audio class='audio-label' controls>
+                <source src='https://api.soundcloud.com/tracks/162746414/stream?client_id=f5f1c67193dfe560ce6db6390276ba45' type='audio/mpeg'></audio>
+             <p>This Item can only be played</p>
+             <p>Uploaded By: Jihdeh</p>
+            </li> 
+            <li>
+              <img class='artwork_cover' src='https://i1.sndcdn.com/artworks-000058691607-gwv9fp-t120x120.jpg' alt='Katty Perry - Roar'/>
+              <h3>Katy Perry - Roar (Brillz Remix) OFFICIAL</h3>
+              <audio class='audio-label' controls>
+                <source src='https://api.soundcloud.com/tracks/112591184/stream?client_id=f5f1c67193dfe560ce6db6390276ba45' type='audio/mpeg'></audio>
+             <p>This Item can only be played</p>
+             <p>Uploaded By: Jihdeh</p>
+            </li>
+           </ul>
+        </div>
+        <!--/#webhose-columns-->
+        <div id="webhose-column-wrapper">
+          <hr />
+          <h3 id="col-2-news">Related News</h3><p class="col-2-news-2">- powered by <a href="webhose.io" title="webhose">Webhose</a></p>
+          <br>
+          <p class="no-results-webhose"></p>
+          <div id="webhose-columns" class="grid-container">
+          </div>
+          <hr>
+        </div>
+        </section>
+        <footer>
+          <p class="centered">&copy; <a href="https://twitter.com/jihdehS">Babajide Fowotade</a></p>
+        </footer>
       </div>
-      <!--/#webhose-columns-->
-      <hr />
-      <h3 id="news">Related News</h3>
-      <br>
-      <div id="webhose-columns" class="grid-container">
-      </div>
-      <hr>
-      </section>
-      <footer>
-        <p class="centered">&copy;<a href="https://twitter.com/jihdehS">Babajide Fowotade</a></p>
-      </footer>
+      <!--/.container-->
     </div>
-    <!--/.container-->
-  </div>
-  <!--/.wrapper-->
+    <!--/.wrapper-->
+    </div>
+    <!--/.bg-wrap-->
   <script src="js/jquery.js" type="text/javascript"></script>
   <script src="js/app.js"></script>
 </body>
